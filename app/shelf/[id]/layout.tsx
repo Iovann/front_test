@@ -3,7 +3,7 @@ import ShelfSidebar from "@/app/components/ShelfSidebar";
 import { Shelf } from "@/src/types/glose";
 import React from "react";
 import { SearchProvider } from "@/src/context/SearchContext";
-import SearchBar from "./components/SearchBar";
+import SearchBar from "./SearchBar";
 
 export default async function ShelfLayout({
   children,
@@ -24,11 +24,11 @@ export default async function ShelfLayout({
 
   return (
     <SearchProvider>
-      <main className="flex h-screen bg-gray-50">
+      <main className="flex flex-col sm:flex-row h-screen bg-gray-50">
         <ShelfSidebar shelves={shelvesSidebar} />
         <section className="flex-1 p-6 overflow-y-auto">
-          <div className="flex flex-col md:flex-row justify-between items-center mb-6 gap-y-2">
-            <h1 className="text-2xl font-bold">{selectedShelf.title}</h1>
+          <div className="flex flex-col md:flex-row md:justify-between md:items-center mb-6 gap-y-2">
+            <h1 className="text-lg sm:text-xl lg:text-2xl font-bold">{selectedShelf.title}</h1>
             <SearchBar />
           </div>
           {children}
