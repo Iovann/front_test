@@ -12,21 +12,27 @@ export interface Shelf {
   };
 }
 
+export interface BookAuthor {
+  id: string;
+  name: string;
+  slug: string;
+  role?: string;
+}
+
+export interface BookPrice {
+  amount: number;
+  currency: string;
+  includes_taxes?: boolean;
+}
+
 export interface Book {
   id: string;
   title: string;
-  authors?: string[];
-  cover_url?: string;
-  price?: number;
+  authors?: BookAuthor[];
+  image?: string;
+  price?: BookPrice;
   average_rating?: number;
   // Ajoutez d'autres champs si besoin selon la réponse de l'API
-}
-
-export interface ShelvesResponse {
-  shelves: Shelf[];
-  total: number;
-  offset: number;
-  limit: number;
 }
 
 export interface FormsResponse {
@@ -36,9 +42,17 @@ export interface FormsResponse {
   limit: number;
 }
 
-export interface BookResponse extends Book {
-  authors: string[];
-  cover_url: string;
-  price: number;
-  average_rating: number;
+export interface BookResponse {
+  id: string;
+  title: string;
+  short_title?: string;
+  authors: BookAuthor[];
+  image?: string;
+  price?: BookPrice;
+  average_rating?: number;
+  description?: string;
+  isbn?: string;
+  publisher?: string;
+  language?: string;
+  // Ajoutez d'autres champs si besoin
 } 
