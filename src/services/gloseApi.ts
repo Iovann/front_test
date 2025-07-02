@@ -18,4 +18,4 @@ export async function fetchBook(formId: string): Promise<BookResponse> {
   const res = await fetch(`${API_ROOT}/forms/${formId}`);
   if (!res.ok) throw new Error('Erreur lors du chargement du livre');
   return res.json();
-} 
+}

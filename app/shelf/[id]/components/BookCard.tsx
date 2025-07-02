@@ -1,4 +1,3 @@
-import React from "react";
 import Image from "next/image";
 import {
   Card,
@@ -40,7 +39,7 @@ const BookCard = ({
   description,
 }: BookCardProps) => {
   return (
-    <Card className="h-full flex flex-col justify-between py-3 gap-y-0">
+    <Card className="h-full flex flex-col justify-between py-3 gap-y-0 max-sm:max-w-xs max-sm:mx-auto">
       <CardHeader className="flex flex-col items-center gap-2 px-2">
         <div className="w-32 h-48 bg-gray-100 rounded mb-2 flex items-center justify-center overflow-hidden">
           {image ? (
@@ -73,12 +72,9 @@ const BookCard = ({
           </div>
         )}
 
-        <div className="text-xs text-yellow-500 flex items-center gap-1">
-          <StarRender rating={4.5} />
-        </div>
         {typeof averageRating === "number" && (
           <div className="text-xs text-yellow-500 flex items-center gap-1">
-            <StarRender rating={4.5} />
+            <StarRender rating={averageRating} />
           </div>
         )}
         {description && (

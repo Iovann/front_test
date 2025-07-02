@@ -36,6 +36,7 @@ async function loadShelfBooks(
   for (const formId of formsResponse) {
     try {
       const bookDetails: BookResponse = await fetchBook(formId);
+      console.log(bookDetails);
       loadedBooks.push({
         id: formId,
         title: bookDetails.title,
@@ -104,6 +105,7 @@ export default function ShelfPage() {
 
   const handlePageChange = (newPage: number) => {
     if (newPage < 0) return;
+    window.scrollTo({top: 0, behavior: 'smooth'});
     setPage(newPage);
   };
 

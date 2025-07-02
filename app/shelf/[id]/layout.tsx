@@ -12,14 +12,15 @@ export default async function ShelfLayout({
   children: React.ReactNode;
   params: { id: string };
 }) {
+  const { id } = await params;
   const shelvesData: Shelf[] = await fetchShelves(0, 10);
   const selectedShelf =
-    shelvesData.find((s) => s.id === params.id) || shelvesData[0];
+    shelvesData.find((s) => s.id === id) || shelvesData[0];
 
   const shelvesSidebar = shelvesData.map((shelf) => ({
     id: shelf.id,
     title: shelf.title,
-    selected: shelf.id === params.id,
+    selected: shelf.id === id,
   }));
 
   return (
@@ -28,7 +29,9 @@ export default async function ShelfLayout({
         <ShelfSidebar shelves={shelvesSidebar} />
         <section className="flex-1 p-6 overflow-y-auto">
           <div className="flex flex-col md:flex-row md:justify-between md:items-center mb-6 gap-y-2">
-            <h1 className="text-lg sm:text-xl lg:text-2xl font-bold">{selectedShelf.title}</h1>
+            <h1 className="text-lg sm:text-xl lg:text-2xl font-bold">
+              {selectedShelf.title}
+            </h1>
             <SearchBar />
           </div>
           {children}
