@@ -1,8 +1,8 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import BookGrid from "@/app/components/BookGrid";
+import BookGrid from "@/app/shelf/[id]/components/BookGrid";
 import { fetchShelfBooks, fetchBook } from "@/src/services/gloseApi";
-import { BookCardProps } from "@/app/components/BookCard";
+import { BookCardProps } from "@/app/shelf/[id]/components/BookCard";
 
 interface BookGridClientProps {
   shelfId: string;

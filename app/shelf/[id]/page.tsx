@@ -8,7 +8,7 @@ import {
   fetchShelves,
 } from "@/src/services/gloseApi";
 import { Shelf, BookAuthor, BookPrice, BookResponse } from "@/src/types/glose";
-import BookGrid from "@/app/components/BookGrid";
+import BookGrid from "@/app/shelf/[id]/components/BookGrid";
 import { useState, useMemo } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useQuery, UseQueryResult } from "@tanstack/react-query";

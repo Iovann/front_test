@@ -1,9 +1,9 @@
 import { fetchShelves } from "@/src/services/gloseApi";
-import ShelfSidebar from "@/app/components/ShelfSidebar";
+import ShelfSidebar from "@/app/shelf/[id]/components/ShelfSidebar";
 import { Shelf } from "@/src/types/glose";
 import React from "react";
 import { SearchProvider } from "@/src/context/SearchContext";
-import SearchBar from "./SearchBar";
+import SearchBar from "./components/SearchBar";
 
 export default async function ShelfLayout({
   children,
