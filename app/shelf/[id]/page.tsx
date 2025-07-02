@@ -36,7 +36,6 @@ async function loadShelfBooks(
   for (const formId of formsResponse) {
     try {
       const bookDetails: BookResponse = await fetchBook(formId);
-      console.log(bookDetails);
       loadedBooks.push({
         id: formId,
         title: bookDetails.title,
