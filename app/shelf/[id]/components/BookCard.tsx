@@ -7,6 +7,7 @@ import {
   CardDescription,
   CardContent,
 } from "@/src/components/ui/card";
+import { StarRender } from "./StarRender";
 
 export interface BookAuthor {
   id: string;
@@ -30,14 +31,14 @@ export interface BookCardProps {
   description?: string;
 }
 
-const BookCard: React.FC<BookCardProps> = ({
+const BookCard = ({
   image,
   title,
   authors,
   price,
   averageRating,
   description,
-}) => {
+}: BookCardProps) => {
   return (
     <Card className="h-full flex flex-col justify-between py-3 gap-y-0">
       <CardHeader className="flex flex-col items-center gap-2 px-2">
@@ -71,17 +72,13 @@ const BookCard: React.FC<BookCardProps> = ({
             {price.amount / 100} {price.currency}
           </div>
         )}
+
+        <div className="text-xs text-yellow-500 flex items-center gap-1">
+          <StarRender rating={4.5} />
+        </div>
         {typeof averageRating === "number" && (
           <div className="text-xs text-yellow-500 flex items-center gap-1">
-            <svg
-              width="16"
-              height="16"
-              fill="currentColor"
-              className="inline-block"
-            >
-              <path d="M8 12.5l-4.33 2.55 1.04-4.5L1 6.95l4.57-.39L8 2.5l2.43 4.06 4.57.39-3.71 3.6 1.04 4.5z" />
-            </svg>
-            {averageRating.toFixed(1)}
+            <StarRender rating={4.5} />
           </div>
         )}
         {description && (

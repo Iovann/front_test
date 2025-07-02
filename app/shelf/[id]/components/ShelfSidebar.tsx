@@ -10,7 +10,7 @@ export interface ShelfSidebarProps {
   }>;
 }
 
-const ShelfSidebar: React.FC<ShelfSidebarProps> = ({ shelves }) => {
+const ShelfSidebar = ({ shelves }: ShelfSidebarProps) => {
   return (
     <aside className="w-full sm:w-48 3xl:w-64 bg-white border-b sm:border-b-0 sm:border-r h-auto sm:h-full p-2 sm:p-4 shadow-sm">
       <h2 className="text-lg font-bold mb-2 sm:mb-4 text-blue-900">ÉTAGÈRES</h2>

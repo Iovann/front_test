@@ -12,6 +12,7 @@ import BookGrid from "@/app/shelf/[id]/components/BookGrid";
 import { useState, useMemo } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useQuery, UseQueryResult } from "@tanstack/react-query";
+import { BookCardSkeleton } from "@/app/shelf/[id]/components/BookCardSkeleton";
 
 interface Book {
   id: string;
@@ -117,13 +118,12 @@ export default function ShelfPage() {
     );
   }
 
-  if (isLoadingBooks && !isFetchingBooks) {
+  if (isLoadingBooks || isFetchingBooks) {
     return (
-      <div className="flex flex-col items-center justify-center h-64">
-        <div className="mb-4 animate-spin rounded-full border-4 border-gray-200 border-t-4 border-t-blue-500 w-12 h-12"></div>
-        <div className="text-lg text-gray-500 font-medium">
-          Chargement des livres...
-        </div>
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
+        {[...Array(10)].map((_, index) => (
+          <BookCardSkeleton key={index} />
+        ))}
       </div>
     );
   }
