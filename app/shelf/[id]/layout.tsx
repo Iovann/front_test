@@ -28,7 +28,7 @@ export default async function ShelfLayout({
         <ShelfSidebar shelves={shelvesSidebar} />
         <section className="flex-1 p-6 overflow-y-auto">
           <div className="flex flex-col md:flex-row md:justify-between md:items-center mb-6 gap-y-2">
-            <h1 className="text-lg sm:text-xl lg:text-2xl font-bold">
+            <h1 className="text-lg sm:text-xl lg:text-2xl font-bold text-blue-600">
               {selectedShelf.title}
             </h1>
             <SearchBar />

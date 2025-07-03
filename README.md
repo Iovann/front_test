@@ -1,36 +1,87 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Test - Application Next.js
 
-## Getting Started
+[Démo en ligne](https://iovann-soft-vodooz-front-test.vercel.app/)
 
-First, run the development server:
+Ce projet est une application web construite avec [Next.js](https://nextjs.org), utilisant TypeScript, et organisée autour de la gestion et l'affichage de livres (BookCard, BookGrid, Shelf, etc.). Il inclut des composants réutilisables, des tests unitaires, et une intégration avec une API externe (gloseApi).
+
+## Fonctionnalités principales
+
+- Affichage de livres sous forme de cartes et de grilles
+- Barre de recherche pour filtrer les livres
+- Système d'étagères (Shelf) pour organiser les livres
+- Sidebar pour la navigation entre les étagères
+- Système de notation (étoiles)
+- Skeletons pour le chargement
+- Intégration d'une API externe (gloseApi)
+- Tests unitaires avec Vitest
+
+## Structure du projet
+
+```
+app/
+  components/           # Composants globaux de l'application
+  shelf/[id]/           # Pages et composants liés à une étagère spécifique
+src/
+  components/ui/        # Composants UI réutilisables (button, card, input, etc.)
+  context/              # Contexts React (ex: SearchContext)
+  lib/                  # Fonctions utilitaires
+  services/             # Services d'accès aux APIs externes
+  types/                # Types TypeScript partagés
+__test__/               # Tests unitaires des composants
+test/                   # Configuration des tests
+public/                 # Fichiers statiques (icônes, images)
+```
+
+## Installation
+
+1. Clone le dépôt :
+   ```bash
+   git clone https://github.com/Iovann/front_test.git
+   ```
+
+2. Installe les dépendances :
+   ```bash
+   npm install
+   # ou
+   yarn install
+   # ou
+   pnpm install
+   ```
+
+## Lancement du serveur de développement
 
 ```bash
 npm run dev
-# or
+# ou
 yarn dev
-# or
+# ou
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Ouvre [http://localhost:3000](http://localhost:3000) dans ton navigateur.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Lancer les tests
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run test
+# ou
+yarn test
+# ou
+pnpm test
+```
 
-## Learn More
+## Technologies utilisées
 
-To learn more about Next.js, take a look at the following resources:
+- Next.js
+- React
+- TypeScript
+- Vitest (tests)
+- CSS Modules
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Déploiement
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Le déploiement est possible sur [Vercel](https://vercel.com/) ou toute plateforme compatible Next.js.
 
-## Deploy on Vercel
+## Licence
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Ce projet est sous licence MIT.

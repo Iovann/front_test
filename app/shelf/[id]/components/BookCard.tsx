@@ -41,17 +41,17 @@ const BookCard = ({
   return (
     <Card className="h-full flex flex-col justify-between py-3 gap-y-0 max-sm:max-w-xs max-sm:mx-auto">
       <CardHeader className="flex flex-col items-center gap-2 px-2">
-        <div className="w-32 h-48 bg-gray-100 rounded mb-2 flex items-center justify-center overflow-hidden">
+        <div className="w-32 h-48 bg-gray-100 mb-2 flex items-center justify-center overflow-hidden border border-gray-300 rounded-md">
           {image ? (
             <Image
               src={image}
               alt={title}
-              className="object-cover w-full h-full"
+              className="object-cover w-full h-full hover:scale-105 transition-all duration-300"
               width={150}
               height={200}
             />
           ) : (
-            <span className="text-gray-400 text-xs">Pas d&apos;image</span>
+            <span className="text-gray-400 text-sm">Pas d&apos;image</span>
           )}
         </div>
         <div className="">

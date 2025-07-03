@@ -1,5 +1,5 @@
 "use client";
-import { useParams } from "next/navigation";
+import { useParams, useSearchParams, useRouter } from "next/navigation";
 import { useSearch } from "@/src/context/SearchContext";
 import { Button } from "@/src/components/ui/button";
 import {
@@ -56,7 +56,10 @@ async function loadShelfBooks(
 export default function ShelfPage() {
   const params = useParams() as { id: string };
   const { search } = useSearch();
-  const [page, setPage] = useState(0);
+  const searchParams = useSearchParams();
+  const router = useRouter();
+  const pageFromUrl = parseInt(searchParams.get("page") || "1", 10) - 1;
+  const [page, setPage] = useState(pageFromUrl);
   const limit = 10;
 
   // Query pour charger les étagères
@@ -103,9 +106,9 @@ export default function ShelfPage() {
   }, [books, search]);
 
   const handlePageChange = (newPage: number) => {
-    if (newPage < 0) return;
-    window.scrollTo({top: 0, behavior: 'smooth'});
     setPage(newPage);
+    router.replace(`?page=${newPage + 1}`);
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   if (isLoadingShelves) {
@@ -121,7 +124,7 @@ export default function ShelfPage() {
 
   if (isLoadingBooks || isFetchingBooks) {
     return (
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-6">
         {[...Array(10)].map((_, index) => (
           <BookCardSkeleton key={index} />
         ))}

@@ -16,7 +16,7 @@ const BookGrid = ({ books }: BookGridProps) => {
             initial={{ opacity: 0, y: 32 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 32 }}
-            transition={{ duration: 0.32, ease: "easeOut", delay: idx * 0.06 }}
+            transition={{ duration: 0.25, ease: "easeOut", delay: idx * 0.05 }}
             layout
           >
             <BookCard {...book} />
