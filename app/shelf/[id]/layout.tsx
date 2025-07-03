@@ -1,7 +1,6 @@
 import { fetchShelves } from "@/src/services/gloseApi";
 import ShelfSidebar from "@/app/shelf/[id]/components/ShelfSidebar";
 import { Shelf } from "@/src/types/glose";
-import React from "react";
 import { SearchProvider } from "@/src/context/SearchContext";
 import SearchBar from "./components/SearchBar";
 
@@ -10,7 +9,7 @@ export default async function ShelfLayout({
   params,
 }: {
   children: React.ReactNode;
-  params: { id: string };
+  params: Promise<{ id: string }>
 }) {
   const { id } = await params;
   const shelvesData: Shelf[] = await fetchShelves(0, 10);
